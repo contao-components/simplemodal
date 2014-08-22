@@ -1,0 +1,28 @@
+{
+    "name": "contao-components/simplemodal",
+    "type": "component",
+    "description": "SimpleModal integration for Contao Open Source CMS",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Leo Feyer",
+            "homepage": "https://github.com/leofeyer"
+        }
+    ],
+    "require": {
+        "robloach/component-installer": "~0.0"
+    },
+    "extra": {
+        "component": {
+            "scripts": [
+                "js/simplemodal.min.js"
+            ],
+            "styles": [
+                "css/simplemodal.min.css"
+            ],
+            "files": [
+                "images/*"
+            ]
+        }
+    }
+}
