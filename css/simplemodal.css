@@ -142,15 +142,15 @@
   font-size: 14px;
   line-height: 1;
   border: 1px solid #aaa;
-  -moz-transition: 0.2s linear all;
-  -webkit-transition: 0.2s linear all;
-  transition: 0.2s linear all;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
 .simple-modal .simple-modal-footer a.btn:hover {
   box-shadow: 0 0 3px #ccc;
+}
+.simple-modal .simple-modal-footer a.btn:active {
+  color:#aaa;
 }
 /*
 .simple-modal .simple-modal-footer a.btn.primary {
