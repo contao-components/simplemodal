@@ -226,7 +226,7 @@ var SimpleModal = new Class({
     * @return node HTML
     */
     _addCloseButton: function(){
-      var b = new Element("a", {"class":"close", "href":"#", "html":"x"});
+      var b = new Element("a", {"class":"close", "href":"#", "html":"&times;"});
           b.inject($("simple-modal"), "top");
           // Aggiunge bottome X Close
           b.addEvent("click", function(e){
