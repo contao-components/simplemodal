@@ -154,6 +154,15 @@
 .simple-modal .simple-modal-footer a.btn:active {
   color:#aaa;
 }
+.simple-modal .simple-modal-footer a.btn-disabled {
+  cursor: not-allowed;
+  color: #bbb;
+  background-color: #f9f9f9;
+  border-color: #c8c8c8;
+}
+.simple-modal .simple-modal-footer a.btn-disabled:hover {
+  box-shadow: none;
+}
 /*
 .simple-modal .simple-modal-footer a.btn.primary {
   color: #FFF;
