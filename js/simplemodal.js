@@ -135,8 +135,7 @@ var SimpleModal = new Class({
       }
 
       // Custom size Modal
-      // PATCH: do not exceed the display width (see #5750)
-      node.setStyles({width:Math.min(this.options.width, window.getCoordinates().width - 20)});
+      node.setStyles({width:this.options.width});
 
       // Hide Header &&/|| Footer
       if( this.options.hideHeader ) node.addClass("hide-header");
