@@ -93,10 +93,10 @@
 .simple-modal a.close {
   position: absolute;
   right: 15px;
-  top: 19px;
+  top: 18px;
   color: #999;
   font-family: Roboto, sans-serif;
-  font-size: 17px;
+  font-size: 30px;
   font-weight: 300;
   line-height: 10px;
   text-decoration: none;
