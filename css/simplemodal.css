@@ -102,7 +102,7 @@
 }
 .simple-modal a.close {
   position: absolute;
-  right: 15px;
+  right: 10px;
   top: 19px;
   color: #999;
   font-family: Lato, Roboto, sans-serif;
