@@ -33,12 +33,14 @@
   width: 100%;
   height: 100%;
   background-color: #000000;
+  /*
   background-position: center center;
   background-repeat: no-repeat;
   background: -webkit-gradient(radial, center center, 0, center center, 460, from(#ffffff), to(#000));
   background: -webkit-radial-gradient(circle, #ffffff, #000);
   background: -moz-radial-gradient(circle, #ffffff, #000);
   background: -ms-radial-gradient(circle, #ffffff, #000);
+  */
 }
 .simple-modal {
   /* Style rewrite */
