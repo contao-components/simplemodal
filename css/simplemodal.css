@@ -82,7 +82,7 @@
   top: 0;
   left: 0;
   width: 1px;
-  height: calc(100% + 5px);
+  height: 101%;
   pointer-events: none;
 }
 .simple-modal .simple-modal-header {
