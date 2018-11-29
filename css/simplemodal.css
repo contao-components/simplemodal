@@ -32,7 +32,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000000;
+  background-color: #000;
   /*
   background-position: center center;
   background-repeat: no-repeat;
@@ -54,9 +54,9 @@
   position: fixed;
   margin: 0;
   color: #808080;
-  font-family: Lato, Roboto, sans-serif;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   font-size: 14px;
-  font-weight: normal;
+  font-weight: 400;
   line-height: 1;
   background-color: #FFFFFF;
   border: 1px solid #EAEEFA;
@@ -68,6 +68,11 @@
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
+}
+@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
+  .simple-modal {
+    font-weight: 300;
+  }
 }
 /* PATCH: see #6028 */
 .ios .simple-modal {
@@ -96,22 +101,32 @@
 }
 .simple-modal .simple-modal-header h1 {
   margin: 0;
-  color: #000;
+  color: #222;
   font-size: 16px;
-  font-weight: bold;
-  font-family: Lato, Roboto, sans-serif;
+  font-weight: 600;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   padding: 18px 12px;
+}
+@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
+  .simple-modal .simple-modal-header h1 {
+    font-weight: 500;
+  }
 }
 .simple-modal a.close {
   position: absolute;
   right: 10px;
   top: 19px;
   color: #999;
-  font-family: Lato, Roboto, sans-serif;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   font-size: 30px;
-  font-weight: normal;
+  font-weight: 400;
   line-height: 10px;
   text-decoration: none;
+}
+@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
+  .simple-modal a.close {
+    font-weight: 300;
+  }
 }
 .simple-modal a.close:hover {
   color: #666;
@@ -126,9 +141,14 @@
 }
 .simple-modal .simple-modal-body p {
   font-size: 13px;
-  font-weight: normal;
+  font-weight: 400;
   color: #606060;
   line-height: 18px;
+}
+@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
+  .simple-modal .simple-modal-body p {
+    font-weight: 300;
+  }
 }
 .simple-modal .simple-modal-body p img {
   display: block;
@@ -152,7 +172,7 @@
   display: inline-block;
   background: #fff;
   padding: 7px 12px;
-  color: #000;
+  color: #222;
   font-size: 14px;
   line-height: 1;
   border: 1px solid #aaa;
@@ -224,11 +244,4 @@
 /* Hide header */
 .simple-modal.hide-footer .simple-modal-footer {
   display: none;
-}
-
-/* Retina displays */
-@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
-  .simple-modal, .simple-modal .simple-modal-header h1, .simple-modal a.close {
-    font-family: "Lato Retina", Lato, Roboto, sans-serif;
-  }
 }
