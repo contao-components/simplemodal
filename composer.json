@@ -1,12 +1,12 @@
 {
     "name": "contao-components/simplemodal",
-    "type": "contao-component",
     "description": "SimpleModal integration for Contao Open Source CMS",
     "license": "MIT",
+    "type": "contao-component",
     "authors": [
         {
-            "name": "Leo Feyer",
-            "homepage": "https://github.com/leofeyer"
+            "name": "Marco Dell'Anna",
+            "homepage": "https://plasm.it"
         }
     ],
     "require": {
