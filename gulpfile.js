@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     csso = require('gulp-csso'),
     ignore = require('gulp-ignore'),
     rename = require('gulp-rename'),
+    svgo = require('gulp-svgo'),
     uglify = require('gulp-uglify'),
     pump = require('pump');
 
@@ -38,4 +39,21 @@ gulp.task('minify-js', function (cb) {
     );
 });
 
-gulp.task('default', gulp.parallel('minify-css', 'minify-js'));
+gulp.task('minify-images', function (cb) {
+    pump([
+            gulp.src('images/*.svg'),
+            svgo({
+                multipass: true,
+                plugins: [{
+                    inlineStyles: {
+                        onlyMatchedOnce: false
+                    }
+                }]
+            }),
+            gulp.dest('images')
+        ],
+        cb
+    );
+});
+
+gulp.task('default', gulp.parallel('minify-css', 'minify-js', 'minify-images'));

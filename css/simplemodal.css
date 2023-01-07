@@ -22,234 +22,219 @@
 *   </div>
 * </div>
 */
+
 /* Vars */
 :root {
-  --text: #222;
-  --content-bg: #fff;
-  --content-border: #c5c8cc;
-  --panel-bg: #f0f0f2;
-  --form-button-hover: #f6f6f6;
+    --text: #222;
+    --content-bg: #fff;
+    --content-border: #c5c8cc;
+    --panel-bg: #f0f0f2;
+    --form-button-hover: #f6f6f6;
+    --loader-icon: url("../images/loader.svg");
+}
+
+html[data-color-scheme="dark"] {
+    color-scheme: dark;
+    --text: #ddd;
+    --content-bg: #1b1d21;
+    --content-border: #4e5156;
+    --panel-bg: #292c32;
+    --form-button-hover: #383a42;
+    --loader-icon: url("../images/loader-dark.svg");
 }
 
 /* Overlay style */
 #simple-modal-overlay {
-  position: fixed ;
-  display: block;
-  z-index: 399998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  /*
-  background-position: center center;
-  background-repeat: no-repeat;
-  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#ffffff), to(#000));
-  background: -webkit-radial-gradient(circle, #ffffff, #000);
-  background: -moz-radial-gradient(circle, #ffffff, #000);
-  background: -ms-radial-gradient(circle, #ffffff, #000);
-  */
+    position: fixed;
+    display: block;
+    z-index: 399998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
 }
+
 .simple-modal {
-  /* Style rewrite */
-
-  width: 600px;
-  left: 20px;
-  top: 20px;
-  /* */
-
-  position: absolute;
-  position: fixed;
-  margin: 0;
-  color: #808080;
-  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1;
-  background-color: var(--content-bg);
-  border: 1px solid var(--content-border);
-  /*border: 1px solid rgba(234, 238, 250, 0.6);*/
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
-  z-index: 399999;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
+    width: 600px;
+    left: 20px;
+    top: 20px;
+    position: fixed;
+    margin: 0;
+    color: #808080;
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    background-color: var(--content-bg);
+    border: 1px solid var(--content-border);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+    z-index: 399999;
+    border-radius: 2px;
 }
-@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
-  .simple-modal {
-    font-weight: 300;
-  }
+
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+    .simple-modal {
+        font-weight: 300;
+    }
 }
+
 /* PATCH: see #6028 */
 .ios .simple-modal {
-  overflow: auto;
-  bottom: 40px;
-  -webkit-overflow-scrolling: touch;
+    overflow: auto;
+    bottom: 40px;
+    -webkit-overflow-scrolling: touch;
 }
-/* PATCH: see #8708 */
+
 .ios .simple-modal:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1px;
-  height: 101%;
-  pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 101%;
+    pointer-events: none;
 }
+
 .simple-modal .simple-modal-header {
-  padding: 0;
-  margin: 0;
-  border-bottom: 1px solid var(--content-border);
-  -moz-border-radius: 2px 2px 0 0;
-  -webkit-border-radius: 2px 2px 0 0;
-  border-radius: 2px 2px 0 0;
-  background-color: var(--panel-bg);
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid var(--content-border);
+    border-radius: 2px 2px 0 0;
+    background-color: var(--panel-bg);
 }
+
 .simple-modal .simple-modal-header h1 {
-  margin: 0;
-  color: var(--text);
-  font-size: 16px;
-  font-weight: 600;
-  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-  padding: 18px 12px;
+    margin: 0;
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 600;
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    padding: 18px 12px;
 }
-@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
-  .simple-modal .simple-modal-header h1 {
-    font-weight: 500;
-  }
+
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+    .simple-modal .simple-modal-header h1 {
+        font-weight: 500;
+    }
 }
+
 .simple-modal a.close {
-  position: absolute;
-  right: 10px;
-  top: 19px;
-  color: #999;
-  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-  font-size: 30px;
-  font-weight: 400;
-  line-height: 10px;
-  text-decoration: none;
+    position: absolute;
+    right: 10px;
+    top: 19px;
+    color: #999;
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 10px;
+    text-decoration: none;
 }
-@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
-  .simple-modal a.close {
-    font-weight: 300;
-  }
+
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+    .simple-modal a.close {
+        font-weight: 300;
+    }
 }
+
 .simple-modal a.close:hover {
-  color: #666;
+    color: #666;
 }
+
 .simple-modal .simple-modal-body {
-  padding: 0;
+    padding: 0;
 }
+
 .simple-modal .simple-modal-body div.contents {
-  /* PATCH: see #8250 */
-  overflow-y: hidden;
-  overflow-x: auto;
+    overflow-y: hidden;
+    overflow-x: auto;
 }
+
 .simple-modal .simple-modal-body p {
-  font-size: 13px;
-  font-weight: 400;
-  color: #606060;
-  line-height: 18px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #606060;
+    line-height: 18px;
 }
-@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
-  .simple-modal .simple-modal-body p {
-    font-weight: 300;
-  }
+
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+    .simple-modal .simple-modal-body p {
+        font-weight: 300;
+    }
 }
+
 .simple-modal .simple-modal-body p img {
-  display: block;
-  margin: 0 auto 10px auto;
+    display: block;
+    margin: 0 auto 10px auto;
 }
+
 .simple-modal .simple-modal-footer {
-  display: block;
-  background-color: var(--panel-bg);
-  padding: 12px;
-  border-top: 1px solid var(--content-border);
-  -moz-border-radius: 0 0 2px 2px;
-  -webkit-border-radius: 0 0 2px 2px;
-  border-radius: 0 0 2px 2px;
-  margin-bottom: 0;
-  text-align: right;
+    display: block;
+    background-color: var(--panel-bg);
+    padding: 12px;
+    border-top: 1px solid var(--content-border);
+    border-radius: 0 0 2px 2px;
+    margin-bottom: 0;
+    text-align: right;
 }
+
 .simple-modal .simple-modal-footer a.btn {
-  margin-left: 3px;
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-block;
-  background: var(--content-bg);
-  padding: 7px 12px;
-  color: var(--text);
-  font-size: 14px;
-  line-height: 1;
-  border: 1px solid var(--content-border);
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
+    margin-left: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    background: var(--content-bg);
+    padding: 7px 12px;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1;
+    border: 1px solid var(--content-border);
+    border-radius: 2px;
 }
+
 .simple-modal .simple-modal-footer a.btn:hover {
-  background: var(--form-button-hover);
+    background: var(--form-button-hover);
 }
+
 .simple-modal .simple-modal-footer a.btn:active {
-  color:#aaa;
+    color: #aaa;
 }
+
 .simple-modal .simple-modal-footer a.btn-disabled {
-  cursor: not-allowed;
-  color: #bbb;
-  background-color: #f9f9f9;
-  border-color: #c8c8c8;
+    cursor: not-allowed;
+    color: #bbb;
+    background-color: #f9f9f9;
+    border-color: #c8c8c8;
 }
-.simple-modal .simple-modal-footer a.btn-disabled:hover {
-  box-shadow: none;
-}
-/*
-.simple-modal .simple-modal-footer a.btn.primary {
-  color: #FFF;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #999;
-  background-repeat: repeat-x;
-  margin-right: 15px;
-}
-.simple-modal .simple-modal-footer a.btn.primary:hover {
-  border: 1px solid #666;
-  background-color: #666;
-}
-.simple-modal .simple-modal-footer a.btn.secondary {
-  padding: 5px 2px 6px;
-}
-.simple-modal .simple-modal-footer a.btn.secondary:hover {
-  color: #999;
-}
-*/
 
 /* Draggable style */
 .simple-modal.draggable .simple-modal-header:hover {
-  cursor: move;
-  background-color: #f8f8f8;
-  -webkit-border-top-left-radius: 2px;
-  -webkit-border-top-right-radius: 2px;
-  -moz-border-radius-topleft: 2px;
-  -moz-border-radius-topright: 2px;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
+    cursor: move;
+    background-color: #f8f8f8;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
 }
+
 /* Loading style */
 .simple-modal.loading .simple-modal-body {
-  min-height: 60px;
-  background: transparent url("../images/loader.gif") no-repeat center center;
+    min-height: 60px;
+    background: transparent var(--loader-icon) no-repeat center center;
 }
+
 .simple-modal.loading .simple-modal-body div.contents {
-  display: none;
+    display: none;
 }
+
 .simple-modal.loading .close, .simple-modal.loading .simple-modal-header, .simple-modal.loading .simple-modal-footer {
-  display: none;
+    display: none;
 }
+
 /* Hide header */
 .simple-modal.hide-header .simple-modal-header {
-  display: none;
+    display: none;
 }
-/* Hide header */
+
+/* Hide footer */
 .simple-modal.hide-footer .simple-modal-footer {
-  display: none;
+    display: none;
 }
