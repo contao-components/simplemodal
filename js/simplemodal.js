@@ -154,6 +154,9 @@ var SimpleModal = new Class({
       }
       // Resize Stage
       this._display();
+
+      // PATCH
+      if (node.getElement("a")) node.getElement("a").focus();
     },
 
     /**
@@ -199,8 +202,14 @@ var SimpleModal = new Class({
                                      "title" : label,
                                      "text"  : label,
                                      "class" : classe,
+                                     // PATCH
+                                     "href"  : "#",
                                      "events": {
-                                         click: (clickEvent || this.hide).bind(this)
+                                         // PATCH
+                                         click: function(e){
+                                             if(e) e.stop();
+                                             (clickEvent || this.hide).bind(this)(e);
+                                         }.bind( this )
                                      }
                                });
          this.buttons.push(bt);
