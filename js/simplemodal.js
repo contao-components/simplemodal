@@ -149,6 +149,9 @@ window.SimpleModal = new Class({
         }
 
         this._display();
+
+        // PATCH
+        if (node.getElement("a")) node.getElement("a").focus();
     },
 
     /**
@@ -201,8 +204,13 @@ window.SimpleModal = new Class({
             "title": label,
             "text": label,
             "class": classe,
+            // PATCH
+            "href"  : "#",
             "events": {
-                click: (clickEvent || this.hide).bind(this)
+                click: function(e){
+                    if (e) e.stop();
+                    (clickEvent || this.hide).bind(this)(e);
+                }.bind(this)
             }
         });
 
