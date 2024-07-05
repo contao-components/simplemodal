@@ -1,59 +1,36 @@
-'use strict';
+const { src, dest, parallel } = require('gulp');
+const csso = require('gulp-csso');
+const rename = require('gulp-rename');
+const svgo = require('gulp-svgo');
+const uglify = require('gulp-uglify');
 
-var gulp = require('gulp'),
-    csso = require('gulp-csso'),
-    ignore = require('gulp-ignore'),
-    rename = require('gulp-rename'),
-    svgo = require('gulp-svgo'),
-    uglify = require('gulp-uglify'),
-    pump = require('pump');
+function css() {
+    return src(['css/*.css', '!css/*.min.css'])
+        .pipe(csso({
+            comments: false,
+            restructure: false
+        }))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(dest('css'));
+}
 
-gulp.task('minify-css', function (cb) {
-    pump([
-            gulp.src('css/*.css'),
-            ignore.exclude('*.min.css'),
-            csso({
-                comments: false,
-                restructure: false
-            }),
-            rename({
-                suffix: '.min'
-            }),
-            gulp.dest('css')
-        ],
-        cb
-    );
-});
+function js() {
+    return src(['js/*.js', '!js/*.min.js'])
+        .pipe(uglify())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(dest('js'));
+}
 
-gulp.task('minify-js', function (cb) {
-    pump([
-            gulp.src('js/*.js'),
-            ignore.exclude('*.min.js'),
-            uglify(),
-            rename({
-                suffix: '.min'
-            }),
-            gulp.dest('js')
-        ],
-        cb
-    );
-});
+function svg() {
+    return src('images/*.svg')
+        .pipe(svgo({
+            multipass: true,
+            plugins: [{
+                sortAttrs: true,
+                inlineStyles: { onlyMatchedOnce: false }
+            }]
+        }))
+        .pipe(dest('images'));
+}
 
-gulp.task('minify-images', function (cb) {
-    pump([
-            gulp.src('images/*.svg'),
-            svgo({
-                multipass: true,
-                plugins: [{
-                    inlineStyles: {
-                        onlyMatchedOnce: false
-                    }
-                }]
-            }),
-            gulp.dest('images')
-        ],
-        cb
-    );
-});
-
-gulp.task('default', gulp.parallel('minify-css', 'minify-js', 'minify-images'));
+exports.default = parallel(css, js, svg);
