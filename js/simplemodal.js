@@ -174,7 +174,7 @@ window.SimpleModal = new Class({
      */
     _drawWindow: function(options) {
         // Add Node in DOM
-        var node = new Element("div#simple-modal", {"class": "simple-modal"});
+        var node = new Element("div#simple-modal", {"class": "simple-modal", "data-turbo-temporary": ""});
         node.inject($$("body")[0]);
 
         // Set Contents
@@ -258,7 +258,7 @@ window.SimpleModal = new Class({
             case 'show':
                 this._overlay('hide', true);
 
-                var overlay = new Element("div", {"id": "simple-modal-overlay"});
+                var overlay = new Element("div", {"id": "simple-modal-overlay", "data-turbo-temporary": ""});
                 overlay.inject($$("body")[0]);
                 overlay.setStyle("background-color", this.options.overlayColor);
                 overlay.fade("hide").fade(this.options.overlayOpacity);
