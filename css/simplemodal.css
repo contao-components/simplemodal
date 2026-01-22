@@ -73,13 +73,13 @@ html[data-color-scheme="dark"] {
     font-weight: 400;
     line-height: 1;
     background-color: var(--content-bg);
-    border: 1px solid var(--content-border);
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 10%);
     z-index: 399999;
-    border-radius: 2px;
+    border-radius: var(--border-radius, 2px);
+    overflow: clip;
 }
 
-@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+@media (resolution >= 2dppx) {
     .simple-modal {
         font-weight: 300;
     }
@@ -105,9 +105,6 @@ html[data-color-scheme="dark"] {
 .simple-modal .simple-modal-header {
     padding: 0;
     margin: 0;
-    border-bottom: 1px solid var(--content-border);
-    border-radius: 2px 2px 0 0;
-    background-color: var(--panel-bg);
 }
 
 .simple-modal .simple-modal-header h1 {
@@ -119,7 +116,7 @@ html[data-color-scheme="dark"] {
     padding: 18px 12px;
 }
 
-@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+@media (resolution >= 2dppx) {
     .simple-modal .simple-modal-header h1 {
         font-weight: 500;
     }
@@ -137,7 +134,7 @@ html[data-color-scheme="dark"] {
     text-decoration: none;
 }
 
-@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+@media (resolution >= 2dppx) {
     .simple-modal a.close {
         font-weight: 300;
     }
@@ -163,7 +160,7 @@ html[data-color-scheme="dark"] {
     line-height: 18px;
 }
 
-@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+@media (resolution >= 2dppx) {
     .simple-modal .simple-modal-body p {
         font-weight: 300;
     }
@@ -179,7 +176,6 @@ html[data-color-scheme="dark"] {
     background-color: var(--panel-bg);
     padding: 12px;
     border-top: 1px solid var(--content-border);
-    border-radius: 0 0 2px 2px;
     margin-bottom: 0;
     text-align: right;
 }
@@ -194,8 +190,8 @@ html[data-color-scheme="dark"] {
     color: var(--text);
     font-size: 14px;
     line-height: 1;
-    border: 1px solid var(--content-border);
-    border-radius: 2px;
+    border: 1px solid var(--form-border);
+    border-radius: var(--border-radius, 2px);
 }
 
 .simple-modal .simple-modal-footer a.btn:hover {
@@ -217,8 +213,6 @@ html[data-color-scheme="dark"] {
 .simple-modal.draggable .simple-modal-header:hover {
     cursor: move;
     background-color: #f8f8f8;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
 }
 
 /* Loading style */
