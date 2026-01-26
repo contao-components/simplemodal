@@ -260,8 +260,9 @@ window.SimpleModal = new Class({
 
                 var overlay = new Element("div", {"id": "simple-modal-overlay", "data-turbo-temporary": ""});
                 overlay.inject($$("body")[0]);
-                overlay.setStyle("background-color", this.options.overlayColor);
-                overlay.fade("hide").fade(this.options.overlayOpacity);
+                // PATCH: Set the styles via CSS (light/dark mode)
+                //overlay.setStyle("background-color", this.options.overlayColor);
+                //overlay.fade("hide").fade(this.options.overlayOpacity);
 
                 // Behaviour
                 if (this.options.overlayClick) {
