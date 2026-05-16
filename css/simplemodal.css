@@ -98,7 +98,7 @@ html[data-color-scheme="dark"] {
     font-size: 16px;
     font-weight: 600;
     font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    padding: 18px 12px;
+    padding: 50px 12px 10px;
 }
 
 @media (resolution >= 2dppx) {
